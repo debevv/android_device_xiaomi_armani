@@ -105,6 +105,16 @@ on boot
     chmod 2770 /dev/socket/qmux_bluetooth
     mkdir /dev/socket/qmux_gps 0770 gps gps
     chmod 2770 /dev/socket/qmux_gps
+        
+    # For setting tcp delayed ack
+    chown system system /sys/kernel/ipv4/tcp_delack_seg
+    chown system system /sys/kernel/ipv4/tcp_use_userconfig
+
+    # Define TCP delayed ack settings for WiFi
+    setprop net.tcp.delack.default     1
+    setprop net.tcp.delack.wifi        20
+    setprop net.tcp.usercfg.default    0
+    setprop net.tcp.usercfg.wifi       1
 
     # Prevents permission denied error for telephony
     chmod 0644 /proc/cmdline
