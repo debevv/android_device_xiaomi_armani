@@ -65,7 +65,15 @@ on init
 
 on fs
     mount_all ./fstab.qcom
+<<<<<<< HEAD
     restorecon_recursive /persist
+=======
+    restorecon /persist
+
+    swapon_all ./fstab.qcom
+    write /proc/sys/vm/page-cluster 0
+
+>>>>>>> 5e0fc3a... Enable ZRAM
     setprop ro.crypto.fuse_sdcard true
 
 on early-boot
