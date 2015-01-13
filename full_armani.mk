@@ -17,12 +17,12 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from armani device
-$(call inherit-product, device/xiaomi/armani/device.mk)
-
 # Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := armani
 PRODUCT_NAME := full_armani
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := HM 1S
-PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_MANUFACTURER := xiaomi
+
+# Inherit from armani device
+$(call inherit-product, device/xiaomi/armani/device.mk)
